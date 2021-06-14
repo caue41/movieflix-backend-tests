@@ -1,40 +1,35 @@
 package com.devsuperior.movieflix.entities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "tb_review")
-public class Review implements Serializable {
+@Table(name = "tb_genre")
+public class Genre implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	private String text;
+	private String name;
 	
-	@ManyToOne
-	@JoinColumn(name = "user_id")
-	private User user;
+	@OneToMany(mappedBy = "genre")
+	private List<Movie> movies = new ArrayList<>();
 	
-	@ManyToOne
-	@JoinColumn(name = "movie_id")
-	private Movie movie;
-	
-	public Review() {
+	public Genre() {
 	}
 
-	public Review(Long id, String text, User user) {
+	public Genre(Long id, String name, Movie movies) {
 		this.id = id;
-		this.text = text;
-		this.user = user;
+		this.name = name;
 	}
 
 	public Long getId() {
@@ -45,24 +40,16 @@ public class Review implements Serializable {
 		this.id = id;
 	}
 
-	public String getText() {
-		return text;
+	public String getName() {
+		return name;
 	}
 
-	public void setText(String text) {
-		this.text = text;
+	public void setName(String name) {
+		this.name = name;
 	}
-
-	public User getUser() {
-		return user;
-	}
-
-	public void setUser(User user) {
-		this.user = user;
-	}
-
-	public Movie getMovie() {
-		return movie;
+	
+	public List<Movie> getMovies() {
+		return movies;
 	}
 
 	@Override
@@ -81,7 +68,7 @@ public class Review implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Review other = (Review) obj;
+		Genre other = (Genre) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;
