@@ -13,7 +13,7 @@ import com.devsuperior.movieflix.repositories.GenreRepository;
 
 @Service
 public class GenreService {
-
+	
 	@Autowired
 	private GenreRepository genreRepository;
 	
