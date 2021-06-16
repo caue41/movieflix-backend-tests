@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.devsuperior.movieflix.entities.Genre;
-import com.devsuperior.movieflix.entities.Movie;
 
 public class GenreDTO implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -13,7 +12,7 @@ public class GenreDTO implements Serializable {
 	private Long id;
 	private String name;
 	
-	private List<MovieDTO> movies = new ArrayList<>();
+	//private List<MovieDTO> movies = new ArrayList<>();
 	
 	public GenreDTO() {
 	}
@@ -26,12 +25,7 @@ public class GenreDTO implements Serializable {
 	public GenreDTO(Genre entity) {
 		id = entity.getId();
 		name = entity.getName();
-		entity.getMovies().forEach(movie -> this.movies.add(new MovieDTO(movie)));
-	}
-	
-	public GenreDTO(Genre entity, List<Movie> movies) {
-		this(entity);
-		movies.forEach(movie -> this.movies.add(new MovieDTO(movie)));
+		//entity.getMovies().forEach(movie -> this.movies.add(new MovieDTO(movie)));
 	}
 
 	public Long getId() {
@@ -50,8 +44,8 @@ public class GenreDTO implements Serializable {
 		this.name = name;
 	}
 
-	public List<MovieDTO> getMovies() {
+	/*public List<MovieDTO> getMovies() {
 		return movies;
-	}
+	}*/
 
 }
