@@ -24,5 +24,6 @@ INSERT INTO tb_movie (img_Url, sub_Title, synopsis, title, year, genre_id) VALUE
 
 INSERT INTO tb_review (text, movie_id, user_id) VALUES ('É legal mas o jogo é muito melhor', 3, 2);
 INSERT INTO tb_review (text, movie_id, user_id) VALUES ('Pra otakus esse filme deve ser muito legal', 1, 2);
+INSERT INTO tb_review (text, movie_id, user_id) VALUES ('My hero academia é um dos melhores animes da atualidade', 1, 2);
 INSERT INTO tb_review (text, movie_id, user_id) VALUES ('Adorei! As cenas de ação são incríveis', 5, 2);
 
